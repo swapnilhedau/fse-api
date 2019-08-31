@@ -58,6 +58,32 @@ public class UserControllerTest {
 	}
 
 	@Test
+	public void testAddUserWithMissinRequiredFields() throws Exception {
+
+		String firstNameMissing = "{\"userId\":1,\"firstName\":null,\"lastName\":\"Bond\",\"employeeId\":12345,\"projectId\":null,\"taskId\":null}";
+
+		MvcResult result1 = mockMvc.perform(post("/user/add").accept(MediaType.APPLICATION_JSON)
+				.content(firstNameMissing).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+		assertTrue(HttpStatus.BAD_REQUEST.value() == result1.getResponse().getStatus());
+
+		String lastNameMissing = "{\"userId\":1,\"firstName\":\"James\",\"lastName\":null,\"employeeId\":12345,\"projectId\":null,\"taskId\":null}";
+
+		MvcResult result2 = mockMvc.perform(post("/user/add").accept(MediaType.APPLICATION_JSON)
+				.content(lastNameMissing).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+		assertTrue(HttpStatus.BAD_REQUEST.value() == result2.getResponse().getStatus());
+
+		String employeeIdMissing = "{\"userId\":1,\"firstName\":\"James\",\"lastName\":\"Bond\",\"employeeId\":null,\"projectId\":null,\"taskId\":null}";
+
+		MvcResult result3 = mockMvc.perform(post("/user/add").accept(MediaType.APPLICATION_JSON)
+				.content(employeeIdMissing).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+		assertTrue(HttpStatus.BAD_REQUEST.value() == result3.getResponse().getStatus());
+
+	}
+
+	@Test
 	public void testEditUser() throws Exception {
 
 		User editUser = new User();
@@ -78,6 +104,43 @@ public class UserControllerTest {
 
 		assertTrue(HttpStatus.CREATED.value() == result.getResponse().getStatus());
 		assertEquals(exampleUser, result.getResponse().getContentAsString());
+
+	}
+
+	@Test
+	public void testEditUserWithMissingRequiredFields() throws Exception {
+
+		User editUser = new User();
+		editUser.setUserId(Integer.valueOf(1));
+		editUser.setFirstName("James");
+		editUser.setLastName("Bond");
+		editUser.setEmployeeId(12345);
+
+		Optional<User> optionalUser = Optional.of(editUser);
+		when(userService.getUserById(Integer.valueOf(1))).thenReturn(optionalUser);
+
+		doNothing().when(userService).editUser(editUser);
+
+		String firstNameMissing = "{\"userId\":1,\"firstName\":null,\"lastName\":\"Bond\",\"employeeId\":12345,\"projectId\":null,\"taskId\":null}";
+
+		MvcResult result = mockMvc.perform(post("/user/edit/1").accept(MediaType.APPLICATION_JSON)
+				.content(firstNameMissing).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+		assertTrue(HttpStatus.NOT_FOUND.value() == result.getResponse().getStatus());
+
+		String lastNameMissing = "{\"userId\":1,\"firstName\":\"James\",\"lastName\":null,\"employeeId\":12345,\"projectId\":null,\"taskId\":null}";
+
+		MvcResult result2 = mockMvc.perform(post("/user/edit/1").accept(MediaType.APPLICATION_JSON)
+				.content(lastNameMissing).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+		assertTrue(HttpStatus.NOT_FOUND.value() == result2.getResponse().getStatus());
+
+		String employeeIdMissing = "{\"userId\":1,\"firstName\":\"James\",\"lastName\":\"Bond\",\"employeeId\":null,\"projectId\":null,\"taskId\":null}";
+
+		MvcResult result3 = mockMvc.perform(post("/user/edit/1").accept(MediaType.APPLICATION_JSON)
+				.content(employeeIdMissing).contentType(MediaType.APPLICATION_JSON)).andReturn();
+
+		assertTrue(HttpStatus.NOT_FOUND.value() == result3.getResponse().getStatus());
 
 	}
 

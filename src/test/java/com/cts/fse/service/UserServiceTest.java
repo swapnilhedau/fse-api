@@ -52,7 +52,7 @@ public class UserServiceTest {
 		User addedUser = userService.addUser(addUser);
 
 		assertNotNull(addedUser);
-		assertTrue(addedUser.getFirstName().equals(addedUser.getFirstName()));
+		assertTrue(addUser.getFirstName().equalsIgnoreCase(addedUser.getFirstName()));
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public class UserServiceTest {
 		listOfAllUsers.add(user1);
 		listOfAllUsers.add(user2);
 
-		when(userService.getAllUsers()).thenReturn(listOfAllUsers);
+		when(userRepository.findAll()).thenReturn(listOfAllUsers);
 
 		List<User> allUsers = userService.getAllUsers();
 
@@ -91,8 +91,9 @@ public class UserServiceTest {
 
 		User user = new User();
 		user.setFirstName("Bond");
+
 		Optional<User> optionalUser = Optional.of(user);
-		when(userService.getUserById(USER_ID)).thenReturn(optionalUser);
+		when(userRepository.findById(USER_ID)).thenReturn(optionalUser);
 
 		Optional<User> userById = userService.getUserById(USER_ID);
 		assertNotNull(userById);
@@ -107,6 +108,7 @@ public class UserServiceTest {
 
 		doNothing().when(userRepository).deleteById(USER_ID);
 		userService.deleteUser(USER_ID);
+
 	}
 
 }

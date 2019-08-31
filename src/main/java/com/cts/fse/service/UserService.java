@@ -2,7 +2,6 @@ package com.cts.fse.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -28,11 +27,6 @@ public class UserService {
 
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
-	}
-
-	public List<String> getAllUserNames() {
-		return userRepository.findAll().stream().map(user -> user.getFirstName() + " " + user.getLastName())
-				.collect(Collectors.toList());
 	}
 
 	public Optional<User> getUserById(Integer userId) {
