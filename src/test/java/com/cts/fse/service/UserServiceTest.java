@@ -107,7 +107,6 @@ public class UserServiceTest {
 
 		doNothing().when(userRepository).deleteById(USER_ID);
 		userService.deleteUser(USER_ID);
-
 	}
 
 }

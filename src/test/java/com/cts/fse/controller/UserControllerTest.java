@@ -175,7 +175,5 @@ public class UserControllerTest {
 				.andReturn();
 
 		assertTrue(HttpStatus.BAD_REQUEST.value() == result.getResponse().getStatus());
-
 	}
-
 }
