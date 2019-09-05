@@ -131,7 +131,7 @@ public class ProjectControllerTest {
 		Optional<Project> optionalProject = Optional.of(project);
 		when(projectService.getProjectById(Integer.valueOf(1))).thenReturn(optionalProject);
 
-		String projectByIdString = "{\"projectId\":1,\"projectName\":\"projectName\",\"startDate\":null,\"endDate\":null,\"priority\":0,\"projectStatus\":null,\"userId\":null,\"noOfTasks\":null,\"completed\":null}";
+		String projectByIdString = "{\"projectId\":1,\"projectName\":\"projectName\",\"startDate\":null,\"endDate\":null,\"priority\":0,\"projectStatus\":null,\"userId\":null,\"noOfTasks\":0,\"completed\":0}";
 
 		MvcResult result = mockMvc.perform(get("/project/1")).andDo(print()).andReturn();
 
