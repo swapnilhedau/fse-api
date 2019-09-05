@@ -35,9 +35,9 @@ public class Project {
 
 	private Integer userId;
 
-	private Integer noOfTasks;
+	private Integer noOfTasks = 0;
 
-	private Integer completed;
+	private Integer completed = 0;
 
 	/**
 	 * @return the projectId
