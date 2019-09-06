@@ -35,10 +35,6 @@ public class Project {
 
 	private Integer userId;
 
-	private Integer noOfTasks = 0;
-
-	private Integer completed = 0;
-
 	/**
 	 * @return the projectId
 	 */
@@ -135,34 +131,6 @@ public class Project {
 	 */
 	public void setUserId(Integer userId) {
 		this.userId = userId;
-	}
-
-	/**
-	 * @return the noOfTasks
-	 */
-	public Integer getNoOfTasks() {
-		return noOfTasks;
-	}
-
-	/**
-	 * @param noOfTasks the noOfTasks to set
-	 */
-	public void setNoOfTasks(Integer noOfTasks) {
-		this.noOfTasks = noOfTasks;
-	}
-
-	/**
-	 * @return the completed
-	 */
-	public Integer getCompleted() {
-		return completed;
-	}
-
-	/**
-	 * @param completed the completed to set
-	 */
-	public void setCompleted(Integer completed) {
-		this.completed = completed;
 	}
 
 }
