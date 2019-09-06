@@ -1,6 +1,7 @@
 package com.cts.fse.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,15 @@ public class TaskService {
 		return taskRepository.save(task);
 	}
 
-	public List<Task> getAllParentTasks() {
+	public List<Task> getAllTasks() {
 		return taskRepository.findAll();
+	}
+
+	public Optional<Task> getTaskById(Integer taskId) {
+		return taskRepository.findById(taskId);
+	}
+
+	public void editTask(Task task) {
+		taskRepository.save(task);
 	}
 }

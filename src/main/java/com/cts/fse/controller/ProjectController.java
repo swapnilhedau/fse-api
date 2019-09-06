@@ -37,6 +37,7 @@ public class ProjectController {
 
 	@PostMapping("/add")
 	public ResponseEntity<Object> addProject(@RequestBody Project project) {
+		project.setProjectStatus("ACTIVE");
 		logger.info("-- add project --");
 		Project savedProject = projectService.addProject(project);
 		Optional<User> optionalUser = userService.getUserById(project.getUserId());
@@ -87,28 +88,6 @@ public class ProjectController {
 		return ResponseEntity.ok(project.get());
 
 	}
-
-	/*
-	 * @DeleteMapping("/{projectId}") public ResponseEntity<Object>
-	 * deleteProject(@PathVariable int projectId) {
-	 * logger.info("-- delete project by id -- " + projectId);
-	 * 
-	 * Optional<Project> optionalProject = projectService.getProjectById(projectId);
-	 * 
-	 * if (!optionalProject.isPresent()) return ResponseEntity.badRequest().build();
-	 * 
-	 * projectService.deleteProject(projectId); return
-	 * ResponseEntity.accepted().build();
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/names") public List<String> getAllProjectNames() {
-	 * logger.info("-- get all project names --");
-	 * 
-	 * return projectService.getAllProjectNames();
-	 * 
-	 * }
-	 */
 
 	@GetMapping("/suspend/{projectId}")
 	public ResponseEntity<Object> suspendProject(@PathVariable int projectId) {
