@@ -27,3 +27,10 @@ docker tag fse-api:0.0.1-SNAPSHOT swapnilhedau/fse-api:0.0.1-SNAPSHOT
 
 # Push to docker hub repository
 docker push swapnilhedau/fse-api:0.0.1-SNAPSHOT
+
+# Using MySql command line client
+login to command prompt
+> create database fse;
+> use fse;
+
+# Use Create.sql file to create tables
