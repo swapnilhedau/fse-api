@@ -37,7 +37,7 @@ public class ViewTaskController {
 	}
 
 	@GetMapping("/endtask/{taskId}")
-	public ResponseEntity<Object> suspendProject(@PathVariable int taskId) {
+	public ResponseEntity<Object> endTask(@PathVariable int taskId) {
 		logger.info("-- end task with id -- " + taskId);
 
 		Optional<Task> optionalTask = viewTaskService.getTaskById(taskId);
