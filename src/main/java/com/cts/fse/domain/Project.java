@@ -1,5 +1,6 @@
 package com.cts.fse.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,11 +12,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PROJECT")
-public class Project {
+public class Project implements Serializable {
+
+	private static final long serialVersionUID = -5495705184852841994L;
 
 	@Id
 	@Column(name = "PROJECT_ID", insertable = false, updatable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer projectId;
 
 	@Column(name = "PROJECT_NAME")
@@ -33,6 +36,7 @@ public class Project {
 	@Column(name = "PROJECT_STATUS")
 	private String projectStatus;
 
+	@Column(name = "USER_ID")
 	private Integer userId;
 
 	/**

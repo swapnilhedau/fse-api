@@ -1,5 +1,6 @@
 package com.cts.fse.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,11 +12,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TASK")
-public class Task {
+public class Task implements Serializable {
+
+	private static final long serialVersionUID = 4227926291644520928L;
 
 	@Id
 	@Column(name = "TASK_ID", insertable = false, updatable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer taskId;
 
 	@Column(name = "PARENT_ID")
