@@ -10,10 +10,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -162,7 +162,7 @@ public class UserControllerTest {
 	@Test
 	public void testGetAllUsers() throws Exception {
 
-		List<User> users = Lists.newArrayList();
+		List<User> users = new ArrayList<>();
 		User user = new User();
 		user.setFirstName("James");
 		users.add(user);

@@ -6,10 +6,10 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,6 +53,7 @@ public class UserServiceTest {
 
 		assertNotNull(addedUser);
 		assertTrue(addUser.getFirstName().equalsIgnoreCase(addedUser.getFirstName()));
+
 	}
 
 	@Test
@@ -69,7 +70,7 @@ public class UserServiceTest {
 	@Test
 	public void testGetAllUsers() {
 
-		List<User> listOfAllUsers = Lists.newArrayList();
+		List<User> listOfAllUsers = new ArrayList<>();
 		User user1 = new User();
 
 		User user2 = new User();

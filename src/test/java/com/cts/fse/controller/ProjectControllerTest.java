@@ -9,10 +9,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,7 +106,7 @@ public class ProjectControllerTest {
 	@Test
 	public void testGetAllProjects() throws Exception {
 
-		List<Project> projects = Lists.newArrayList();
+		List<Project> projects = new ArrayList<Project>();
 		Project project = new Project();
 		project.setProjectName("projectName");
 		projects.add(project);

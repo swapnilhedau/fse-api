@@ -5,11 +5,11 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,7 +72,7 @@ public class ProjectServiceTest {
 	@Test
 	public void testGetAllProjects() {
 
-		List<Project> listOfProjects = Lists.newArrayList();
+		List<Project> listOfProjects = new ArrayList<>();
 		Project project1 = new Project();
 
 		Project project2 = new Project();

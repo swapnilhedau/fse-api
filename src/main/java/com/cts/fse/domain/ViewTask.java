@@ -18,24 +18,10 @@ public class ViewTask {
 	}
 
 	/**
-	 * @param task the task to set
-	 */
-	public void setTask(Task task) {
-		this.task = task;
-	}
-
-	/**
 	 * @return the parentTask
 	 */
 	public ParentTask getParentTask() {
 		return parentTask;
-	}
-
-	/**
-	 * @param parentTask the parentTask to set
-	 */
-	public void setParentTask(ParentTask parentTask) {
-		this.parentTask = parentTask;
 	}
 
 }
