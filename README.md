@@ -16,7 +16,7 @@ $ docker build --build-args=target/*.jar -t fse-api:latest .
 
 
 #Dockerfile war
-$ docker build -t fse-api:0.0.1-SNAPSHOT
+$ docker build -t fse-api:0.0.1-SNAPSHOT .
 
 
 # Run docker image
