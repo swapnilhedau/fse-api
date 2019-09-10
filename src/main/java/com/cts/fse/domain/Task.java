@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "TASK")
 public class Task implements Serializable {
@@ -30,9 +32,11 @@ public class Task implements Serializable {
 	@Column(name = "TASK")
 	private String taskName;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "START_DATE")
 	private Date startDate;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "END_DATE")
 	private Date endDate;
 

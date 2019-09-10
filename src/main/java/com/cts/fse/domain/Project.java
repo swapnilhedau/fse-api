@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "PROJECT")
 public class Project implements Serializable {
@@ -24,9 +26,11 @@ public class Project implements Serializable {
 	@Column(name = "PROJECT_NAME")
 	private String projectName;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "START_DATE")
 	private Date startDate;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "END_DATE")
 	private Date endDate;
 
