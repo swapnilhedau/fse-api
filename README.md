@@ -34,3 +34,6 @@ login to command prompt
 > use fse;
 
 # Use Create.sql file to create tables
+
+
+# Code Factor Rating [![CodeFactor](https://www.codefactor.io/repository/github/swapnilhedau/fse-api/badge)](https://www.codefactor.io/repository/github/swapnilhedau/fse-api)
