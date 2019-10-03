@@ -37,3 +37,5 @@ login to command prompt
 
 
 # Code Factor Rating [![CodeFactor](https://www.codefactor.io/repository/github/swapnilhedau/fse-api/badge)](https://www.codefactor.io/repository/github/swapnilhedau/fse-api)
+
+# CircleCI Status [![CircleCI](https://circleci.com/gh/swapnilhedau/fse-api.svg?style=svg)](https://circleci.com/gh/swapnilhedau/fse-api)
