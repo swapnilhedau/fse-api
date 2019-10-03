@@ -20,7 +20,7 @@ $ docker build -t fse-api:0.0.1-SNAPSHOT .
 
 
 # Run docker image
-$ docker run -it -p 8080:8080 swapnilhedau/fse-api:0.0.1-SNAPSHOT
+$ docker run --name fse-api -it -p 8080:8080 swapnilhedau/fse-api:0.0.1-SNAPSHOT
 
 # Retag local image for docker hub
 docker tag fse-api:0.0.1-SNAPSHOT swapnilhedau/fse-api:0.0.1-SNAPSHOT
